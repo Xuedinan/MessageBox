@@ -1,7 +1,8 @@
 # MessageBox
 
 Name: Xuedinan Gao
-Semester: CS 5001 Fall 2023 Final Project
+Semester: CS 5001 Fall 2023 
+Topic: Final Project
 
 This is a simple message box program with R/W on the local database, user can leave message to a selected audience in the program and save the message in the program database.
 When the user logs back into the program, the user can review the historical message for selected audience.
