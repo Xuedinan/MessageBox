@@ -13,9 +13,9 @@ When the user logs back into the program, the user can review the historical mes
 ## Interactions with users are
 
 1. User selects login or sign up for program
-    1.1 Sign up with user name and credential
-        1.1.1 Program provide error message when username is invalid or exsits
-    1.2 Login prorgam with user information
+    *1.1* Sign up with user name and credential
+        *1.1.1* Program provide error message when username is invalid or exsits
+    *1.2* Login prorgam with user information
 
 2. Select a audience want to leave message or review message
     2.1 Defual 5 users
