@@ -26,7 +26,7 @@ signup_erro_user_msg = "Username is existed, please different name. "
 def read_user_file(file="user_info.txt"):
     try:
         with open(file, "r") as file:
-            user_list = [names for names in file.readlines()]
+            user_list = [names.strip() for names in file.readlines()]
             return user_list
     except EOFError as erro:
         print("User info file is wrong: ", erro)
@@ -52,12 +52,17 @@ def signup():
             return False
 
 
-def login():
+def user_info_dict():
     user_dict = {}
     user_list = read_user_file()
     for user in user_list:
         user_password = user.strip().split(":")
         user_dict[user_password[0]] = user_password[1]
+    return user_dict
+
+
+def login():
+    user_dict = user_info_dict()
     while True:
         username_msg = input(login_user_msg)
         for names in user_dict.keys():
@@ -73,12 +78,12 @@ def login():
             print(login_erro_user_msg)
 
 
-def get_input():
+def login_get_input():
     msg = input(options_msg + "\nYour command: ")
     return msg
 
 
-def command_reg(message):
+def command_log(message):
 
     if message == command_signup:
         return signup()
@@ -88,13 +93,13 @@ def command_reg(message):
         return ""
     else:
         print(command_error_msg)
-        get_input()
+        login_get_input()
 
 
-def main():
-    print(welcome_msg)
-    input = get_input()
-    command_reg(input)
+# def main():
+#     print(welcome_msg)
+#     input = get_input()
+#     command_reg(input)
 
 
-main()
+# main()
