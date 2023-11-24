@@ -55,7 +55,7 @@ def find_user_message(input_name):
             user_msg_dict[name] = [message]
 
     if input_name in user_msg_dict:
-        message = " ".join(user_msg_dict[input_name])
+        message = " ".join("\n").join(user_msg_dict[input_name])
         return message
     else:
         return review_command_empty
