@@ -21,9 +21,10 @@ login_erro_pass_msg = "Password is incorrect, please doubel check. "
 signup_user_msg = "Please enter username to sign up: "
 signup_password_msg = "Please enter password to sign up: "
 signup_erro_user_msg = "Username is existed, please different name. "
+user_info_file = "user_info.txt"
 
 
-def read_user_file(file="user_info.txt"):
+def read_user_file(file=user_info_file):
     try:
         with open(file, "r") as file:
             user_list = [names.strip() for names in file.readlines()]
@@ -32,7 +33,7 @@ def read_user_file(file="user_info.txt"):
         print("User info file is wrong: ", erro)
 
 
-def add_user_file(file="user_info.txt", message=""):
+def add_user_file(file=user_info_file, message=""):
     try:
         with open(file, "a+") as file:
             return file.writelines(message)
@@ -94,12 +95,3 @@ def command_log(message):
     else:
         print(command_error_msg)
         login_get_input()
-
-
-# def main():
-#     print(welcome_msg)
-#     input = get_input()
-#     command_reg(input)
-
-
-# main()
