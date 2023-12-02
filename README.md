@@ -16,29 +16,30 @@ When the user logs back into the program, the user can review the historical mes
 It's working like a Email system, send or review message.
 
 
-# Program run guidance
+## Program run guidance
 
 1. Program strucrue 
 
 MessageBox inlude 5 files in total
 
-Three .py files
+- Three .py files
     - login_logout_messagebox.py # stored all functions for login and signup
 
     - updated_message_messagebox.py # storeed all functions for review or send messag 
 
     - main_messagebox.py # main() function
 
-Two .txt files
+- Two .txt files
     - user_info.txt # stored username and password with data structure "username:password"
 
     - user_message.txt # stored sender, receiver and message information with data structure "sender,receiver,message"
     
 2. How to run or test it
-
     - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, becuase this is new account)
 
-    - User could directly run main_messagebox.py and login program with test account "username: gao / password: 123" to review the existing message for "gao"
+    - User could directly run main_messagebox.py and login program with test account 
+    * "username: gao / password: 123" 
+    to review the existing message for "gao"
 
 ## Interactions with users are
 
