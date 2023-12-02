@@ -64,9 +64,6 @@ def read_message_receiver_map(file=user_message_file):
     return receiver_map
 
 
-print(read_message_receiver_map())
-
-
 def read_message_list(file=user_message_file):
 
     try:
