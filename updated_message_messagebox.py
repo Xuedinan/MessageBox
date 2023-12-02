@@ -1,19 +1,24 @@
 
 import login_logout_messagebox as login
 
-command_error = "Command is wrong, please enter correct command key word"
 message_command = "Do you want to write new message or review historical message?\n\n Enter: write (to write new message)\n Enter: review (to review historical message)\n Enter: exit (to exit program)\n"
+command_error = "Command is wrong, please enter correct command key word"
+
 select_user = "\nPlease enter user name to write message to: "
 username_erro = "Username not exsit, please enter correct username"
 username_list = "\n--- Below users are in the system right now ---\n"
+
 write_command = "write"
 write_message_to = "\nWho you want to send message to? \n"
 write_message_confirm = "Message sent successfully. \n"
 write_command_msg = "Please enter your message: "
+
 review_command = "review"
 review_messag_from = "\n------ You received below message -----\n"
 review_command_msg = "Please enter username to review all the message: "
 review_command_empty = "There is incorrect username and there is no message"
+review_no_message = "\n---You don't have message since you just created the account---\n"
+
 user_message_file = "user_message.txt"
 
 
@@ -144,7 +149,7 @@ def signup_command_msg(message):
     if message == "write":
         return write_message()
     elif message == "review":
-        return print("\n---You don't have message since you just created the account. ---\n")
+        return print(review_no_message)
     elif message == "exit":
         return
     else:

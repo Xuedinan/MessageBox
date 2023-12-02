@@ -3,14 +3,17 @@ options_msg = "Please type in your command:\n \nsignup - creating new account \n
 command_signup = "signup"
 command_login = "login"
 command_exit = "exit"
+
 login_user_msg = "Please enter your username to login: "
 login_pass_msg = "Please enter your password to login: "
 login_erro_user_msg = "Username is wrong, please doubel check. "
 login_erro_pass_msg = "Password is incorrect, please doubel check. "
+
 signup_user_msg = "Please enter username to sign up: "
 signup_password_msg = "Please enter password to sign up: "
 signup_erro_user_msg = "Username is existed, please different name. "
 signup_account_created = "Your account is created. \n"
+
 user_info_file = "user_info.txt"
 
 signup_name = ""

@@ -7,8 +7,11 @@
 
 ## MessageBox
 
-This is a simple message box program with R/W on the local database, user can leave message to a selected audience in the program and save the message in the program database.
-When the user logs back into the program, the user can review the historical message for selected audience.
+This is a simple message box program with R/W on the local database, user can leave message to a selected accounts in the program and save the message in the program database.
+
+When the user logs back into the program, the user can review the historical message that is received from other users.
+
+It's working like a Email system, send or review message.
 
 ## Interactions with users are
 
@@ -18,19 +21,36 @@ When the user logs back into the program, the user can review the historical mes
         - Program provide error message when username is invalid or exsits
     - Login prorgam with user information
 
-2. Select a audience want to leave message or review message
+2. Select a audience want to leave message or review message received from other users
 
-    - Defual 5 users
-    - Option: keep new signed up users name
+    - Provide defual users
     - Review message
-        - Return empty message when no message exsit for selected audience
-        - Print out history message for selected user
+        - Return empty message when no message exsit
+        - Print out historical message for the user
             *- Option: provide English and Chinese options.*
 
-    - User write message and program save it to database
+    - User write message to selected user and program save it to database
         *- Option: using ChatGPT to save with English and Chinese text*
 
 3. User log out and exit program
+
+
+Simple work-flow
+
+    1. welcome
+    2. get user command
+    3. check user command
+        3.1 sign up
+        3.2 log in
+        3.3 ask for action
+            3.3.1 review message
+                a. only review users message
+                b. print out message
+            3.3.2 write message
+                a. select user
+                b. save message to local file
+    4. exit 
+
 
 ```
 **Pending for decesion**
