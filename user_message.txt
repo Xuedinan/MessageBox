@@ -1,4 +1,7 @@
-gao:test~gao
-xdg:hello~~~~~xdg
-kkk:qaqa~kkk
-kkk:kykyk~yoyoyoyo
+gao,justin,gao say hello to justin
+tom,justin,tom say hi to justin
+gao,tom,gao say yoho to tom
+jack,tom,yoyoyoyoyo
+gao,peter,hello how are you
+gao,jack,hello jack this is gao
+

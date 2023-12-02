@@ -1,6 +1,0 @@
-"""
-check password
-
-storage password
-
-"""

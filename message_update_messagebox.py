@@ -1,18 +1,3 @@
-"""
-command
-
-selecte user
-
-read
-
-write
-
-chinese version
-
-
-leave and write message
-
-"""
 
 import login_logout_messagebox as login
 
@@ -22,9 +7,12 @@ select_user = "Please enter user name to write message to: "
 username_erro = "Username not exsit, please enter correct username"
 username_list = "Below users are in the system right now: \n"
 write_command = "write"
+write_message_to = "Who you want to send message to? \n"
+write_message_confirm = "Message sent successfully. \n"
 write_command_msg = "Please enter your message: "
 review_command = "review"
-review_command_msg = "Please enter username to review message: "
+review_messag_from = "You received below message: \n"
+review_command_msg = "Please enter username to review all the message: "
 review_command_empty = "There is incorrect username and there is no message"
 user_message_file = "user_message.txt"
 
@@ -39,6 +27,9 @@ def read_message_list(file=user_message_file):
         print("Open message file is wrong ", erro)
 
     return user_message_list
+
+
+print(read_message_list())
 
 
 def find_user_message(input_name):
