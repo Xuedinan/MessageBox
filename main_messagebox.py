@@ -7,7 +7,6 @@
     3.3 ask for action
         3.3.1 review message
             a. only review users message
-            a. select user #######
             b. print out message
         3.3.2 write message
             a. select user
@@ -20,6 +19,11 @@ edge case:
 2. how to exit
 3. new command, delete message?
 
+pending task,
+
+split(",")
+
+check puntruation input 
 
 """
 
@@ -29,14 +33,6 @@ import updated_message_messagebox as msg_action
 welcome_msg = "\nThanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : )\n"
 exit_msg = "\nProgram has been terminalted, thanks for using :) \n"
 command_error_msg = "\n--- Wrong command ---\n"
-
-
-def active_signup():
-    pass
-
-
-def active_message():
-    pass
 
 
 def main():
