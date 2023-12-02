@@ -34,11 +34,11 @@ It's working like a Email system, send or review message.
 
     - user_message.txt # stored sender, receiver and message information with data structure "sender,receiver,message"
     
-2. ### How to run or test it
+2. #### How to run or test program? 
     - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, becuase this is new account)
 
     - User could directly run main_messagebox.py and login program with test account 
-    * "username: gao / password: 123" to review the existing message for "gao"
+        - "username: gao / password: 123" to review the existing message for "gao"
 
 ## Interactions with users are
 
