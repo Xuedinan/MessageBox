@@ -78,6 +78,40 @@ Simple work-flow
                 b. save message to local file
     4. exit 
 
+## Exmple of test run
+
+1. login with test account "username: gao / password: 123"
+2. select review message to "gao"
+
+```
+Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : )
+
+Please type in your command:
+ 
+signup - creating new account 
+login - return user login 
+exit - exit program
+
+Your command: login
+Please enter your username to login: gao
+Please enter your password to login: 123
+123
+Do you want to write new message or review historical message?
+
+ Enter: write (to write new message)
+ Enter: review (to review historical message)
+ Enter: exit (to exit program)
+
+Your command: review
+
+------ You received below message -----
+
+Sender: jack
+Message: jack say hello to gao
+
+Sender: peter
+Message: peter say yoyoyo to gao
+```
 
 ```
 **Pending for decesion**
