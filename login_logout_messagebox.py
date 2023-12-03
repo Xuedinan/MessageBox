@@ -1,16 +1,16 @@
 
-options_msg = "Please type in your command:\n \nsignup - creating new account \nlogin - return user login \nexit - exit program\n"
+options_msg = "Please type in your command:\n \nSignup - creating new account \nLogin - return user login \nExit - exit program\n"
 command_signup = "signup"
 command_login = "login"
 command_exit = "exit"
 
-login_user_msg = "Please enter your username to login: "
-login_pass_msg = "Please enter your password to login: "
-login_erro_user_msg = "Username is wrong, please doubel check. "
-login_erro_pass_msg = "Password is incorrect, please doubel check. "
+login_user_msg = "Please enter your Username to login: "
+login_pass_msg = "Please enter your Password to login: "
+login_erro_user_msg = "--- Username is wrong, please doubel check. --- \n"
+login_erro_pass_msg = "--- Password is incorrect, please doubel check. --- \n"
 
-signup_user_msg = "Please enter username to sign up: "
-signup_password_msg = "Please enter password to sign up: "
+signup_user_msg = "Please enter Username to sign up: "
+signup_password_msg = "Please enter Password to sign up: "
 signup_erro_user_msg = "Username is existed, please select different name. "
 signup_account_created = "Your account is created. \n"
 
@@ -99,14 +99,14 @@ def signup():
         global signup_name
 
         # get input signup username
-        signup_name = input(signup_user_msg)
+        signup_name = input(signup_user_msg).casefold()
         for names in read_user_file():
 
             # get exsited username from user_info.txt and compare with input name
             name = names[:names.index(":")]
             if signup_name == name:
                 print(signup_erro_user_msg)
-                signup_name = input(signup_user_msg)
+                signup_name = input(signup_user_msg).casefold()
             else:
                 # if username is confirmed, then ask for password
                 msg_password = str(input(signup_password_msg))
@@ -177,7 +177,7 @@ def login():
         # change global variable login_name, will use it for review/write functions
         # login_name defaul value is ""
         global login_name
-        login_name = input(login_user_msg)
+        login_name = input(login_user_msg).casefold()
         for names in user_dict.keys():
             if login_name == names:  # check if input username is existed in the program
                 password_msg = input(login_pass_msg)
@@ -191,19 +191,19 @@ def login():
             print(login_erro_user_msg)
 
 
-def login_get_input():
+def get_command_input():
     """ Get user input for selecting command options.
-        signup
-        login
-        exit
+        Signup
+        Login
+        Exit
 
     Example:
-        >>> login_get_input()
+        >>> get_command_input()
 
         return "signup"
 
     Args:
-        login_get_input()
+        get_command_input()
 
     Returns:
         str: signup, login or exit

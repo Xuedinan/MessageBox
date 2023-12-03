@@ -30,22 +30,22 @@ check puntruation input
 import login_logout_messagebox as log_action
 import updated_message_messagebox as msg_action
 
-welcome_msg = "\nThanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : )\n"
-exit_msg = "\nProgram has been terminalted, thanks for using :) \n"
-command_error_msg = "\n--- Wrong command ---\n"
+welcome_msg = "\n----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : ) -----\n"
+exit_msg = "\n----- Program has been terminalted, thanks for using :) -----\n"
+command_error_msg = "\n Wrong command \n"
 
 
 def main():
     print(welcome_msg)
 
-    log_msg = log_action.login_get_input()
+    log_msg = log_action.get_command_input()
 
-    if log_msg == log_action.command_signup:
+    if log_msg.casefold() == log_action.command_signup:
         if log_action.signup() == False:
             msg_msg = msg_action.message_get_input()
             msg_action.signup_command_msg(msg_msg)
 
-    elif log_msg == log_action.command_login:
+    elif log_msg.casefold() == log_action.command_login:
         if log_action.login() == False:
             msg_msg = msg_action.message_get_input()
             msg_action.login_command_msg(msg_msg)

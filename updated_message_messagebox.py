@@ -1,8 +1,8 @@
 
 import login_logout_messagebox as login
 
-message_command = "Do you want to write new message or review historical message?\n\n Enter: write (to write new message)\n Enter: review (to review historical message)\n Enter: exit (to exit program)\n"
-command_error = "Command is wrong, please enter correct command key word"
+message_command = "Do you want to write new message or review historical message?\n\n Enter: Write (to write new message)\n Enter: Review (to review historical message)\n Enter: Exit (to exit program)\n"
+command_error = "----- Command is wrong, please enter correct command key word -----\n"
 
 select_user = "\nPlease enter user name to write message to: "
 username_erro = "Username not exsit, please enter correct username"
@@ -212,9 +212,11 @@ def login_command_msg(message):
     """ 
        when user login program, check user selected command, then call write function, review function or exit program.
     """
-    if message == "write":
+    message = message.casefold()
+
+    if message == write_command:
         return write_message()
-    elif message == "review":
+    elif message == review_command:
         return review_message(login.login_name)
     elif message == "exit":
         return
@@ -227,9 +229,11 @@ def signup_command_msg(message):
     """ 
        when user signup program, check user selected command, then call write function, review function or exit program.
     """
-    if message == "write":
+    message = message.casefold()
+
+    if message == write_command:
         return write_message()
-    elif message == "review":
+    elif message == review_command:
         return print(review_no_message)
     elif message == "exit":
         return
