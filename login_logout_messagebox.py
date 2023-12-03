@@ -11,7 +11,7 @@ login_erro_pass_msg = "Password is incorrect, please doubel check. "
 
 signup_user_msg = "Please enter username to sign up: "
 signup_password_msg = "Please enter password to sign up: "
-signup_erro_user_msg = "Username is existed, please different name. "
+signup_erro_user_msg = "Username is existed, please select different name. "
 signup_account_created = "Your account is created. \n"
 
 # defaul txt file which store username and password
@@ -81,14 +81,14 @@ def signup():
         >>> signup()
 
         username: gao
-        print error message, Username is existed, please different name.
+        print error message, Username is existed, please select different name.
 
         username: robert
         password: 123
         pass robert:123 to add_user_file() and return booline
 
     Args:
-        signup()                # No args needed
+        signup()
 
     Returns:
         booline
@@ -120,24 +120,70 @@ def signup():
 
 
 def user_info_dict():
+    """ Create a dict by reading user_info.txt file for existed user information, return dict with {"username":"password"}
+
+    Example:
+        >>> user_info_dict()
+
+        {'gao':'123', 'xdg':'123', 'kkk':131'}
+
+    Args:
+        user_info_dict()
+
+    Returns:
+        user information dict {"username":"password"}
+    """
     user_dict = {}
+    # get existed user list from user_info.txt file
     user_list = read_user_file()
     for user in user_list:
         user_password = user.strip().split(":")
+        # create dict with {"username":"password"}
         user_dict[user_password[0]] = user_password[1]
     return user_dict
 
 
 def login():
-    user_dict = user_info_dict()
-    while True:
+    """ login function, get user input of username, then check if input username is matching the password in the user_info.txt file.
+        If input username is not existed in the user_info.txt file, then return error message and break the program.
+
+        If password is correct then login() will return booline result for using in the following message functions (review, write, etc).
+
+    Example:
+        >>> user_info_dict()
+
+        username: Tim
+        print error message, Username is wrong, please doubel check.
+
+        username: gao
+        password: 9999999
+        print error message, Password is incorrect, please doubel check.
+
+        username: gao
+        password: 123
+        return booline
+
+    Args:
+        login()
+
+    Returns:
+        booline
+    """
+    user_dict = user_info_dict(
+    )  # get dict {"username":"password"} for matching
+
+    while True:  # function will stop when input login information is correct
+
+        # change global variable login_name, will use it for review/write functions
+        # login_name defaul value is ""
         global login_name
         login_name = input(login_user_msg)
         for names in user_dict.keys():
-            if login_name == names:
+            if login_name == names:  # check if input username is existed in the program
                 password_msg = input(login_pass_msg)
+                # check if input password is matching in dict {"username":"password"}
                 if password_msg == user_dict[login_name]:
-                    return False
+                    return False  # return false to exit the loop
                 else:
                     print(login_erro_pass_msg)
                     break
@@ -146,5 +192,21 @@ def login():
 
 
 def login_get_input():
+    """ Get user input for selecting command options.
+        signup
+        login
+        exit
+
+    Example:
+        >>> login_get_input()
+
+        return "signup"
+
+    Args:
+        login_get_input()
+
+    Returns:
+        str: signup, login or exit
+    """
     msg = input(options_msg + "\nYour command: ")
     return msg
