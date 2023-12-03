@@ -1,13 +1,9 @@
 gao:123
 xdg:123
 kkk:131
-wuhu:123123
 Tom:123
 hello:123
 siyang:123
 jack:123
 justin:123
 peter:123
-kaka:123
-ronald:123
-jingjing:123

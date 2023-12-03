@@ -118,46 +118,100 @@ def print_receiver_mssage(sender, message):
 
 
 def write_message_file(file=user_message_file):
+    """ Receive str: sender,receiver,message and write on user_message.txt file
+
+    Example:
+        >>> write_message_file(file=user_message_file)
+        sender: jack
+        receiver: tom
+        message: jack say hello to tom
+
+        add new line on txt file with: jack,tom,jack say hello to tom
+
+    Args:
+        write_message_file(file=user_message_file)          # default file is user_message.txt
+
+    Returns:
+        updated on user_message.txt
+    """
+
     try:
-        with open(file, "a+") as file:
-            file.write(str(select_username_message(user_name_list()))+"\n")
+        with open(file, "a+") as file:  # add new line on file
+            # get sender,receiver,message and write on txt file
+            file.write(str(write_username_message(user_name_list()))+"\n")
     except FileNotFoundError as erro:
         print("Open message file is wrong ", erro)
 
 
 def user_name_list():
-    user_info_dict = login.user_info_dict()
+    """ Get name list that all registered accounts in the program.
+
+    Example:
+        >>> user_name_list()
+        ['gao', 'peter', 'jack', ...]
+
+    Args:
+        user_name_list()        # call user_info.dict() from login_logout_messagebox.py
+
+    Returns:
+        list
+    """
+    user_info_dict = login.user_info_dict()  # get dict {"name":"password"}
+    # only get names from dict and save into list
     name_list = [name for name in user_info_dict.keys()]
 
     return name_list
 
 
-def select_username_message(name_list):
-    user_message = ""
-    user_name = input(select_user)
+def write_username_message(name_list):
+    """ ask user to input message for selected receiver, then create str with data structure
+        sender(login or signup name),receiver,message 
 
-    while user_name not in name_list:
+    Example:
+        >>> write_username_message(['tom', 'gao', 'jack'])
+        user,gao,user say hello to gao
+
+    Args:
+        write_username_message(name_list)        # name list
+
+    Returns:
+        str: sender,receiver,message
+    """
+    user_message = ""
+    user_name = input(select_user)  # ask user to select receiver
+
+    while user_name not in name_list:  # print out error message when receiverr name is not in the program
         print(username_erro)
         print("Existing users are ", *user_name_list())
         user_name = input(select_user)
+
+        # check if if user selected login or signup in the program by comparing two global variable
     else:
         if login.login_name != "":
             message_to_user = input(write_command_msg)
+            # create str: sender,receiver,message
             user_message = login.login_name + "," + user_name + "," + message_to_user
         elif login.signup_name != "":
             message_to_user = input(write_command_msg)
+            # create str: sender,receiver,message
             user_message = login.signup + "," + user_name + "," + message_to_user
 
         return user_message
 
 
 def message_get_input():
+    """ 
+        ask user to input command to review or write or exit prorgam.
+    """
     msg = input(message_command + "\nYour command: ")
 
     return msg
 
 
 def login_command_msg(message):
+    """ 
+       when user login program, check user selected command, then call write function, review function or exit program.
+    """
     if message == "write":
         return write_message()
     elif message == "review":
@@ -170,6 +224,9 @@ def login_command_msg(message):
 
 
 def signup_command_msg(message):
+    """ 
+       when user signup program, check user selected command, then call write function, review function or exit program.
+    """
     if message == "write":
         return write_message()
     elif message == "review":
@@ -182,6 +239,22 @@ def signup_command_msg(message):
 
 
 def write_message():
+    """ Print usernames in the program then ask user to select a user to write message. 
+        Save message in the user_message.txt file.
+
+    Example:
+        >>> write_message()
+        --- Below users are in the system right now ---
+
+        gao
+        xdg
+        kkk
+
+        Please enter user name to write message to:
+
+    Returns:
+        print out each name in different line, save message
+    """
     print(username_list)
     for users in user_name_list():
         print(users)
@@ -190,5 +263,8 @@ def write_message():
 
 
 def review_message(name):
+    """
+        ask user to input name for review then pass name to receiver_message(name) to review message.
+    """
     print(review_messag_from)
     receiver_message(name)
