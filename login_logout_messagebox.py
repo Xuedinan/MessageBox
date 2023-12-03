@@ -23,7 +23,7 @@ login_name = ""
 
 
 def read_user_file(file=user_info_file):
-    """Read user_info.txt file and create a list with username and password.
+    """ Read user_info.txt file and create a list with username and password.
 
     Example:
         >>> read_user_file(file=user_info_file)
@@ -49,7 +49,7 @@ def read_user_file(file=user_info_file):
 
 
 def add_user_file(file=user_info_file, message=""):
-    """Open user information file and add username, password into file for new signup user.
+    """ Open user information file and add username, password into file for new signup user.
 
     Example:
         >>> add_user_file(file=user_info_file, message="zitong:123")
