@@ -11,7 +11,7 @@
 
 This is a "email" program called "MessageBox" with Review and Write on the local database, user can leave message to a selected accounts in the program and save the message in the program database.
 
-When the user logs back into the program, the user can review the historical message that is received from other users.
+When the user login back into the program, the user can review the historical message that is received from other users.
 
 It's working like a Email system, send or review message.
 
@@ -78,7 +78,7 @@ Simple work-flow
                 b. save message to local file
     4. exit 
 
-## Exmple of test run
+## Example of test run
 
 1. login with test account "username: gao / password: 123"
 2. select review message to "gao"
@@ -95,7 +95,6 @@ exit - exit program
 Your command: login
 Please enter your username to login: gao
 Please enter your password to login: 123
-123
 Do you want to write new message or review historical message?
 
  Enter: write (to write new message)
