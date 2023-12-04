@@ -84,32 +84,32 @@ Simple work-flow
 2. select review message to "gao"
 
 ```
-Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : )
+----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : ) -----
 
 Please type in your command:
  
-signup - creating new account 
-login - return user login 
-exit - exit program
+Signup - creating new account 
+Login - return user login 
+Exit - exit program
 
-Your command: login
-Please enter your username to login: gao
-Please enter your password to login: 123
+Your command: LoGin
+Please enter your Username to login: GaO
+Please enter your Password to login: 123
 Do you want to write new message or review historical message?
 
- Enter: write (to write new message)
- Enter: review (to review historical message)
- Enter: exit (to exit program)
+ Enter: Write (to write new message)
+ Enter: Review (to review historical message)
+ Enter: Exit (to exit program)
 
-Your command: review
+Your command: ReView
 
 ------ You received below message -----
 
-Sender: jack
-Message: jack say hello to gao
+Sender: Jack
+Message: Jack say hello to gao
 
-Sender: peter
-Message: peter say yoyoyo to gao
+Sender: Peter
+Message: Peter say yoyoyo to gao
 ```
 
 ```

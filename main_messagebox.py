@@ -22,6 +22,8 @@ edge case:
 pending task,
 
 split(",")
+file save blank lines
+for loop - reveiw/write with wrong command
 
 check puntruation input 
 
@@ -32,7 +34,7 @@ import updated_message_messagebox as msg_action
 
 welcome_msg = "\n----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : ) -----\n"
 exit_msg = "\n----- Program has been terminalted, thanks for using :) -----\n"
-command_error_msg = "\n Wrong command \n"
+command_error_msg = "\n----- Wrong command \n"
 
 
 def main():

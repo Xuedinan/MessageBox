@@ -3,15 +3,17 @@ import login_logout_messagebox as login
 
 message_command = "Do you want to write new message or review historical message?\n\n Enter: Write (to write new message)\n Enter: Review (to review historical message)\n Enter: Exit (to exit program)\n"
 command_error = "----- Command is wrong, please enter correct command key word -----\n"
+exit_msg = "\n----- Program has been terminalted, thanks for using :) -----\n"
 
 select_user = "\nPlease enter user name to write message to: "
-username_erro = "Username not exsit, please enter correct username"
+username_erro = "\n----- Username not exsit, please enter correct username -----\n"
 username_list = "\n--- Below users are in the system right now ---\n"
 
 write_command = "write"
 write_message_to = "\nWho you want to send message to? \n"
 write_message_confirm = "Message sent successfully. \n"
 write_command_msg = "Please enter your message: "
+write_message_exit = "\n Your message is saved. \n"
 
 review_command = "review"
 review_messag_from = "\n------ You received below message -----\n"
@@ -114,7 +116,7 @@ def print_receiver_mssage(sender, message):
         print out
     """
 
-    print(f"Sender: {sender}\nMessage: {message}\n")
+    print(f"Sender: {sender.capitalize()}\nMessage: {message.capitalize()}\n")
 
 
 def write_message_file(file=user_message_file):
@@ -138,7 +140,8 @@ def write_message_file(file=user_message_file):
     try:
         with open(file, "a+") as file:  # add new line on file
             # get sender,receiver,message and write on txt file
-            file.write(str(write_username_message(user_name_list()))+"\n")
+            file.write(str(write_username_message(
+                user_name_list())).casefold()+"\n")
     except FileNotFoundError as erro:
         print("Open message file is wrong ", erro)
 
@@ -178,12 +181,11 @@ def write_username_message(name_list):
         str: sender,receiver,message
     """
     user_message = ""
-    user_name = input(select_user)  # ask user to select receiver
+    user_name = input(select_user).casefold()  # ask user to select receiver
 
     while user_name not in name_list:  # print out error message when receiverr name is not in the program
         print(username_erro)
-        print("Existing users are ", *user_name_list())
-        user_name = input(select_user)
+        user_name = input(select_user).casefold()
 
         # check if if user selected login or signup in the program by comparing two global variable
     else:
@@ -261,9 +263,12 @@ def write_message():
     """
     print(username_list)
     for users in user_name_list():
+        users = users.capitalize()
         print(users)
 
     write_message_file()
+    print(write_message_exit)
+    print(exit_msg)
 
 
 def review_message(name):
@@ -272,3 +277,4 @@ def review_message(name):
     """
     print(review_messag_from)
     receiver_message(name)
+    print(exit_msg)
