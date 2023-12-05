@@ -50,7 +50,7 @@ def read_message_receiver_map(file=user_message_file):
 
             for msg in user_message_list:
                 # create new list and split to [sender, receiver, message]
-                msg = msg.split(",")
+                msg = msg.split("%&%")
                 sender = msg[1]  # get sender name
                 if sender in receiver_map:  # if sender in the dict, then add message to the value
                     receiver_map[sender].append(msg[0]+","+msg[2])
@@ -181,22 +181,23 @@ def write_username_message(name_list):
         str: sender,receiver,message
     """
     user_message = ""
-    user_name = input(select_user).casefold()  # ask user to select receiver
+    # ask user to select receiver
+    user_name = input(select_user).strip().casefold()
 
     while user_name not in name_list:  # print out error message when receiverr name is not in the program
         print(username_erro)
-        user_name = input(select_user).casefold()
+        user_name = input(select_user).strip().casefold()
 
         # check if if user selected login or signup in the program by comparing two global variable
     else:
         if login.login_name != "":
             message_to_user = input(write_command_msg)
             # create str: sender,receiver,message
-            user_message = login.login_name + "," + user_name + "," + message_to_user
+            user_message = login.login_name + "%&%" + user_name + "%&%" + message_to_user
         elif login.signup_name != "":
             message_to_user = input(write_command_msg)
             # create str: sender,receiver,message
-            user_message = login.signup + "," + user_name + "," + message_to_user
+            user_message = login.signup + "%&%" + user_name + "%&%" + message_to_user
 
         return user_message
 
@@ -214,34 +215,40 @@ def login_command_msg(message):
     """ 
        when user login program, check user selected command, then call write function, review function or exit program.
     """
-    message = message.casefold()
+    message = message.strip().casefold()
 
-    if message == write_command:
-        return write_message()
-    elif message == review_command:
-        return review_message(login.login_name)
-    elif message == "exit":
-        return
-    else:
-        print(command_error)
-        return message_get_input()
+    while message != "exit":  # keep listening for command
+
+        if message == write_command:
+            return write_message()
+        elif message == review_command:
+            return review_message(login.login_name)
+        else:
+            print(command_error)
+            message = input(message_command + "\nYour command: ").casefold()
+            continue
+
+    print(exit_msg)
 
 
 def signup_command_msg(message):
     """ 
        when user signup program, check user selected command, then call write function, review function or exit program.
     """
-    message = message.casefold()
+    message = message.strip().casefold()
 
-    if message == write_command:
-        return write_message()
-    elif message == review_command:
-        return print(review_no_message)
-    elif message == "exit":
-        return
-    else:
-        print(command_error)
-        return message_get_input()
+    while message != "exit":  # keep listening for command
+
+        if message == write_command:
+            return write_message()
+        elif message == review_command:
+            return print(review_no_message)
+        elif message == "exit":
+            return
+        else:
+            print(command_error)
+            message = input(message_command + "\nYour command: ").casefold()
+            continue
 
 
 def write_message():
@@ -268,7 +275,9 @@ def write_message():
 
     write_message_file()
     print(write_message_exit)
-    print(exit_msg)
+
+    # keep listening command
+    login_command_msg(message_get_input().strip().casefold())
 
 
 def review_message(name):
@@ -277,4 +286,6 @@ def review_message(name):
     """
     print(review_messag_from)
     receiver_message(name)
-    print(exit_msg)
+
+    # keep listening command
+    login_command_msg(message_get_input().strip().casefold())

@@ -1,11 +1,9 @@
-gao,justin,gao say hello to justin
-tom,justin,tom say hi to justin
-gao,tom,gao say yoho to tom
-jack,tom,yoyoyoyoyo
-gao,peter,hello how are you
-gao,jack,hello jack this is gao
-jack,gao,jack say hello to gao
-peter,gao,peter say yoyoyo to gao
-
-gao,joyce,heyheyheyhey
-gao,joyce,uiuiuiuiu
+gao%&%justin%&%gao say hello to justin
+tom%&%justin%&%tom say hi to justin
+gao%&%tom%&%gao say yoho to tom
+jack%&%tom%&%yoyoyoyoyo
+gao%&%peter%&%hello how are you
+gao%&%jack%&%hello jack this is gao
+jack%&%gao%&%jack say hello to gao
+peter%&%gao%&%peter say yoyoyo to gao
+gao%&%siyang%&%123123123123123123123

@@ -12,6 +12,9 @@ login_erro_pass_msg = "--- Password is incorrect, please doubel check. --- \n"
 signup_user_msg = "Please enter Username to sign up: "
 signup_password_msg = "Please enter Password to sign up: "
 signup_erro_user_msg = "Username is existed, please select different name. "
+signup_erro_user_empty_msg = "Username can not be empty, please try again. "
+signup_erro_password_empty_msg = "Password can not be empty, please try again. "
+
 signup_account_created = "Your account is created. \n"
 
 # defaul txt file which store username and password
@@ -100,23 +103,43 @@ def signup():
 
         # get input signup username
         signup_name = input(signup_user_msg).casefold()
-        for names in read_user_file():
 
-            # get exsited username from user_info.txt and compare with input name
-            name = names[:names.index(":")]
-            if signup_name == name:
-                print(signup_erro_user_msg)
-                signup_name = input(signup_user_msg).casefold()
-            else:
-                # if username is confirmed, then ask for password
-                msg_password = str(input(signup_password_msg))
-                user_signup_input = str(
-                    signup_name+":"+msg_password)  # structure = username:password
+        all_names = []
+        for names in read_user_file():  # get all exsited usernames list
+            all_names.append(names.split(":")[0].casefold())
 
+        if len(signup_name.strip()) == 0:   # check if username is empty
+            print(signup_erro_user_empty_msg)
+            signup_name = input(signup_user_msg).casefold()
+            print(signup_erro_user_empty_msg)
+
+        elif signup_name in all_names:  # check if username is exsited
+            print(signup_erro_user_msg)
+            signup_name = input(signup_user_msg).casefold()
+            print(signup_erro_user_msg)
+        else:
+            # if username is confirmed, then ask for password
+            msg_password = str(input(signup_password_msg))
+            # structure = username:password
+            user_signup_input = str(signup_name+":"+msg_password)
+
+            if len(msg_password.strip()) != 0:
                 # add to the user_info.txt
                 add_user_file(message="\n" + user_signup_input)
                 print(signup_account_created)
                 return False
+            else:
+                print(signup_erro_password_empty_msg)
+
+                while True:
+                    if len(msg_password.strip()) == 0:
+
+                        msg_password = str(input(signup_password_msg))
+                        print(signup_erro_password_empty_msg)
+                    else:
+                        add_user_file(message="\n" + user_signup_input)
+                        print(signup_account_created)
+                        return False
 
 
 def user_info_dict():
@@ -186,7 +209,12 @@ def login():
                     return False  # return false to exit the loop
                 else:
                     print(login_erro_pass_msg)
-                    break
+                    while True:
+                        password_msg = input(login_pass_msg)
+                        if password_msg == user_dict[login_name]:
+                            return False
+                        else:
+                            print(login_erro_pass_msg)
         else:
             print(login_erro_user_msg)
 

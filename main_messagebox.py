@@ -21,9 +21,12 @@ edge case:
 
 pending task,
 
-split(",")
-file save blank lines
-for loop - reveiw/write with wrong command
+# split(",")
+# file save blank lines
+# for loop - reveiw/write with wrong command
+# when password is wrong, only request new password input
+signup case insensitive, none empty
+    password can't not be empty
 
 check puntruation input 
 
@@ -35,6 +38,7 @@ import updated_message_messagebox as msg_action
 welcome_msg = "\n----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : ) -----\n"
 exit_msg = "\n----- Program has been terminalted, thanks for using :) -----\n"
 command_error_msg = "\n----- Wrong command \n"
+exit_program = "exit"
 
 
 def main():
@@ -44,12 +48,12 @@ def main():
 
     if log_msg.casefold() == log_action.command_signup:
         if log_action.signup() == False:
-            msg_msg = msg_action.message_get_input()
+            msg_msg = msg_action.message_get_input().strip().casefold()
             msg_action.signup_command_msg(msg_msg)
 
     elif log_msg.casefold() == log_action.command_login:
         if log_action.login() == False:
-            msg_msg = msg_action.message_get_input()
+            msg_msg = msg_action.message_get_input().strip().casefold()
             msg_action.login_command_msg(msg_msg)
     else:
         print(command_error_msg)

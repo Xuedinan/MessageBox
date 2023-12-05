@@ -30,9 +30,9 @@ It's working like a Email system, send or review message.
     - main_messagebox.py # main() function
 
 - Two .txt files
-    - user_info.txt # stored username and password with data structure "username:password"
+    - user_info.txt # stored username and password with data format "username:password"
 
-    - user_message.txt # stored sender, receiver and message information with data structure "sender,receiver,message"
+    - user_message.txt # stored sender, receiver and message information with data format "sender,receiver,message"
     
 2. #### How to run or test program? 
     - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, becuase this is new account)
@@ -44,9 +44,9 @@ It's working like a Email system, send or review message.
 
 1. User selects login or sign up for program
 
-    - Sign up with user name and credential
+    - Sign up with user name and credential (signup)
         - Program provide error message when username is invalid or exsits
-    - Login prorgam with user information
+    - Login prorgam with user information (login)
 
 2. Select a audience want to leave message or review message received from other users
 
