@@ -15,7 +15,11 @@ review_messag_from = "You received below message: \n"
 review_command_msg = "Please enter username to review all the message: "
 review_command_empty = "There is incorrect username and there is no message"
 user_message_file = "user_message.txt"
+<<<<<<< HEAD
 test = "This is Test msg"
+=======
+test_local = "test local"
+>>>>>>> 3023adb (test)
 
 
 def read_message_list(file=user_message_file):
