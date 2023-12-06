@@ -1,4 +1,4 @@
-# Final Project
+## Final Project
 
 
 * Name: Xuedinan Gao
@@ -114,13 +114,17 @@ Message: Peter say yoyoyo to gao
 
 1. Design UI and create website
     - Provide easy-to-use uI, like clicking button to active function, not by typing words in the terminal
+
 2. More security for user information by Encrypt and Decrypt password
     - Since user txt file is public, we need to plugin encrypt and decrypt password function, make sure all information is well maintained
+
 3. Provide Forward, Draft, Delete message functions
     - Like real email system, need to add above function into the program.
     - Also consider using different data structures to easily access information from txt file
+
 4. Connect API to provide message translation service
     - This is a "fancy" thought and the easiest way to make program is related to AI. just call API of ChatGPT then translate the message to different languages
+
 5. Use cloud database to store all information
     - This is also related to password security and making sure the message information is well-stored
 
