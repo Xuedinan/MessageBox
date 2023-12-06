@@ -1,3 +1,13 @@
+"""
+Final Project
+===========================
+Course:   CS 5001
+Semester: Fall 2023
+Student:  Xuedinan Gao
+
+Functions for review message from txt file for users and write message to txt file for user selecting account.
+
+"""
 
 import login_logout_messagebox as login
 
@@ -220,10 +230,12 @@ def login_command_msg(message):
     while message != "exit":  # keep listening for command
 
         if message == write_command:
-            return write_message()
+            return write_message()  # call write message function
         elif message == review_command:
+            # call review message function for login username
             return review_message(login.login_name)
         else:
+            # print out command wrong message then keep listening for command
             print(command_error)
             message = input(message_command + "\nYour command: ").casefold()
             continue
@@ -240,12 +252,14 @@ def signup_command_msg(message):
     while message != "exit":  # keep listening for command
 
         if message == write_command:
-            return write_message()
+            return write_message()  # call write message function
         elif message == review_command:
+            # there is no exsiting message for new signup username, so can't review message
             return print(review_no_message)
         elif message == "exit":
             return
         else:
+            # print out command wrong message then keep listening for command
             print(command_error)
             message = input(message_command + "\nYour command: ").casefold()
             continue
@@ -268,12 +282,12 @@ def write_message():
     Returns:
         print out each name in different line, save message
     """
-    print(username_list)
+    print(username_list)  # print out existing usernames in the program
     for users in user_name_list():
         users = users.capitalize()
         print(users)
 
-    write_message_file()
+    write_message_file()  # call function to ask and write message
     print(write_message_exit)
 
     # keep listening command

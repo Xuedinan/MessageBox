@@ -54,13 +54,10 @@ It's working like a Email system, send or review message.
     - Review message
         - Return empty message when no message exsit
         - Print out historical message for the user
-            *- Option: provide English and Chinese options.*
 
     - User write message to selected user and program save it to database
-        *- Option: using ChatGPT to save with English and Chinese text*
 
 3. User log out and exit program
-
 
 Simple work-flow
 
@@ -112,11 +109,24 @@ Sender: Peter
 Message: Peter say yoyoyo to gao
 ```
 
-```
-**Pending for decesion**
 
-1. Design UI
-2. Provide Welcome Message when open program
-3. Local DB or FireBase
+## What's Next?
 
-```
+1. Design UI and create website
+    - Provide easy-to-use uI, like clicking button to active function, not by typing words in the terminal
+2. More security for user information by Encrypt and Decrypt password
+    - Since user txt file is public, we need to plugin encrypt and decrypt password function, make sure all information is well maintained
+3. Provide Forward, Draft, Delete message functions
+    - Like real email system, need to add above function into the program.
+    - Also consider using different data structures to easily access information from txt file
+4. Connect API to provide message translation service
+    - This is a "fancy" thought and the easiest way to make program is related to AI. just call API of ChatGPT then translate the message to different languages
+5. Use cloud database to store all information
+    - This is also related to password security and making sure the message information is well-stored
+
+
+## Final thought on this assignment
+
+First of all, I've been enjoying this final project. It opened my mind to how to build a program from scratch even if it's just a simple program without fancy features. But I learned a lot during it. I did a few times updates on the whole design as long as I decided to provide different features, I think it's just like a Sprint in the real SWE world. 
+
+Besides learning how to design, how to code, I noted the importance of time management and scope assessment of the whole project. I made my progress smoothly and made sure it was under control. Overall, this is a great experience and practical learning. Thank you for offering it with wide-open flexibility.

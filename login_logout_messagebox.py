@@ -1,3 +1,13 @@
+"""
+Final Project
+===========================
+Course:   CS 5001
+Semester: Fall 2023
+Student:  Xuedinan Gao
+
+Functions for login(check username and password), signup(check, save username and password)
+
+"""
 
 options_msg = "Please type in your command:\n \nSignup - creating new account \nLogin - return user login \nExit - exit program\n"
 command_signup = "signup"
@@ -11,9 +21,9 @@ login_erro_pass_msg = "--- Password is incorrect, please doubel check. --- \n"
 
 signup_user_msg = "Please enter Username to sign up: "
 signup_password_msg = "Please enter Password to sign up: "
-signup_erro_user_msg = "Username is existed, please select different name. "
-signup_erro_user_empty_msg = "Username can not be empty, please try again. "
-signup_erro_password_empty_msg = "Password can not be empty, please try again. "
+signup_erro_user_msg = "----- Username is existed, please select different name. -----\n "
+signup_erro_user_empty_msg = "----- Username can not be empty, please try again. -----\n"
+signup_erro_password_empty_msg = "----- Password can not be empty, please try again. -----\n "
 
 signup_account_created = "Your account is created. \n"
 
@@ -72,6 +82,18 @@ def add_user_file(file=user_info_file, message=""):
         print("User info file is wrong: ", erro)
 
 
+def get_input_for_error(erro_message):
+    """
+    print out error message for invalid username input and keep getting input
+    """
+    print(erro_message)
+
+    # allow user to add space on their username, no strip()
+    signup_name = input(signup_user_msg).casefold()
+
+    return signup_name
+
+
 def signup():
     """ Function for signup, ask user to provide username and password then pass them to the add_user_file() to save in the user_info.txt file.
         When the input username is exsit in the program, will ask user to enter a new username until get correct username.
@@ -96,47 +118,46 @@ def signup():
     Returns:
         booline
     """
-    while True:
-        # change global variable signup_name, will use it for review/write functions
-        # signup_name defaul value is ""
-        global signup_name
+    # change global variable signup_name, will use it for review/write functions
+    # signup_name defaul value is ""
+    global signup_name
+    # get input signup username
+    signup_name = input(signup_user_msg).casefold()
 
-        # get input signup username
-        signup_name = input(signup_user_msg).casefold()
+    all_names = []
+    for names in read_user_file():  # get all exsited usernames list
+        all_names.append(names.split(":")[0].casefold())
 
-        all_names = []
-        for names in read_user_file():  # get all exsited usernames list
-            all_names.append(names.split(":")[0].casefold())
+    while True:  # keep requesting username and password, stop when input is valid
 
         if len(signup_name.strip()) == 0:   # check if username is empty
-            print(signup_erro_user_empty_msg)
-            signup_name = input(signup_user_msg).casefold()
-            print(signup_erro_user_empty_msg)
+            signup_name = get_input_for_error(signup_erro_user_empty_msg)
 
         elif signup_name in all_names:  # check if username is exsited
-            print(signup_erro_user_msg)
-            signup_name = input(signup_user_msg).casefold()
-            print(signup_erro_user_msg)
+            signup_name = get_input_for_error(signup_erro_user_msg)
+
         else:
             # if username is confirmed, then ask for password
             msg_password = str(input(signup_password_msg))
-            # structure = username:password
+            # save username and password with structure = username:password, add to txt file after below checks
             user_signup_input = str(signup_name+":"+msg_password)
 
-            if len(msg_password.strip()) != 0:
-                # add to the user_info.txt
+            if len(msg_password.strip()) != 0:  # check if password input is empty
+                # add to the user_info.txt when input is not empty
                 add_user_file(message="\n" + user_signup_input)
                 print(signup_account_created)
                 return False
             else:
+                # inform user password can not be empty
                 print(signup_erro_password_empty_msg)
 
-                while True:
-                    if len(msg_password.strip()) == 0:
+                while True:  # keep getting password input until it's not empty
 
+                    if len(msg_password.strip()) == 0:  # check if password is empty
                         msg_password = str(input(signup_password_msg))
                         print(signup_erro_password_empty_msg)
                     else:
+                        # when username and password are not empty, save them to the txt file
                         add_user_file(message="\n" + user_signup_input)
                         print(signup_account_created)
                         return False
