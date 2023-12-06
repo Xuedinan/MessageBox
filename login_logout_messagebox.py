@@ -139,10 +139,10 @@ def signup():
         else:
             # if username is confirmed, then ask for password
             msg_password = str(input(signup_password_msg))
-            # save username and password with structure = username:password, add to txt file after below checks
-            user_signup_input = str(signup_name+":"+msg_password)
 
             if len(msg_password.strip()) != 0:  # check if password input is empty
+                # save username and password with structure = username:password, add to txt file after below checks
+                user_signup_input = str(signup_name+":"+msg_password)
                 # add to the user_info.txt when input is not empty
                 add_user_file(message="\n" + user_signup_input)
                 print(signup_account_created)
@@ -158,6 +158,7 @@ def signup():
                         print(signup_erro_password_empty_msg)
                     else:
                         # when username and password are not empty, save them to the txt file
+                        user_signup_input = str(signup_name+":"+msg_password)
                         add_user_file(message="\n" + user_signup_input)
                         print(signup_account_created)
                         return False

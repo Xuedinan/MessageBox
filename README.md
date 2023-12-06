@@ -109,6 +109,85 @@ Sender: Peter
 Message: Peter say yoyoyo to gao
 ```
 
+3. More demo run with testing edge cases
+```
+----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favorite person : ) -----
+
+Please type in your command:
+ 
+Signup - creating new account 
+Login - return user login 
+Exit - exit program
+
+Your command: signup
+Please enter Username to sign up: gao
+----- Username is existed, please select different name. -----
+ 
+Please enter Username to sign up:  
+----- Username can not be empty, please try again. -----
+
+Please enter Username to sign up: tester
+Please enter Password to sign up:  
+----- Password can not be empty, please try again. -----
+ 
+Please enter Password to sign up: 123
+----- Password can not be empty, please try again. -----
+ 
+Your account is created. 
+
+Do you want to write new message or review historical message?
+
+ Enter: Write (to write new message)
+ Enter: Review (to review historical message)
+ Enter: Exit (to exit program)
+
+Your command: asdasdasd
+----- Command is wrong, please enter correct command key word -----
+
+Do you want to write new message or review historical message?
+
+ Enter: Write (to write new message)
+ Enter: Review (to review historical message)
+ Enter: Exit (to exit program)
+
+Your command: WRiTe
+
+--- Below users are in the system right now ---
+
+Gao
+Xdg
+Kkk
+Tom
+Hello
+Siyang
+Jack
+Justin
+Peter
+Joyce
+Sharon
+Tester
+
+Please enter user name to write message to: I'm not sure
+
+----- Username not exsit, please enter correct username -----
+
+
+Please enter user name to write message to: jACk
+Please enter your message: Hi Jack, this is test message~
+
+ Your message is saved. 
+
+Do you want to write new message or review historical message?
+
+ Enter: Write (to write new message)
+ Enter: Review (to review historical message)
+ Enter: Exit (to exit program)
+
+Your command: eXIt
+
+----- Program has been terminalted, thanks for using :) -----
+
+```
 
 ## What's Next?
 

@@ -207,7 +207,7 @@ def write_username_message(name_list):
         elif login.signup_name != "":
             message_to_user = input(write_command_msg)
             # create str: sender,receiver,message
-            user_message = login.signup + "%&%" + user_name + "%&%" + message_to_user
+            user_message = login.signup_name + "%&%" + user_name + "%&%" + message_to_user
 
         return user_message
 
