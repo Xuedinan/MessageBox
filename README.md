@@ -20,19 +20,19 @@ It's working like a Email system, send or review message.
 
 1. #### Program structure 
 
-#### MessageBox inlude 5 files in total
+- MessageBox inlude 5 files in total
 
-- Three .py files
-    - login_logout_messagebox.py # stored all functions for login and signup
+    - Three .py files
+        - login_logout_messagebox.py # stored all functions for login and signup
 
-    - updated_message_messagebox.py # storeed all functions for review or send messag 
+        - updated_message_messagebox.py # storeed all functions for review or send messag 
 
-    - main_messagebox.py # main() function
+        - main_messagebox.py # main() function
 
-- Two .txt files
-    - user_info.txt # stored username and password with data format "username:password"
+    - Two .txt files
+        - user_info.txt # stored username and password with data format "username:password"
 
-    - user_message.txt # stored sender, receiver and message information with data format "sender,receiver,message"
+        - user_message.txt # stored sender, receiver and message information with data format "sender,receiver,message"
     
 2. #### How to run or test program? 
     - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, because this is new account)
