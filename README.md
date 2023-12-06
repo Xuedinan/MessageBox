@@ -32,7 +32,7 @@ It's working like a Email system, send or review message.
     - Two .txt files
         - user_info.txt         # stored username and password with data format "username:password"
 
-        - user_message.txt      # stored sender, receiver and message information with data format "sender,receiver,message"
+        - user_message.txt      # stored sender, receiver and message information with data format "sender%&%receiver%&%message"
     
 2. #### How to run or test program? 
     - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, because this is new account)
