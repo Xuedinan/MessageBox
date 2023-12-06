@@ -27,7 +27,7 @@ Main function for the program, work-flow as below.
 import login_logout_messagebox as log_action
 import updated_message_messagebox as msg_action
 
-welcome_msg = "\n----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favourite person : ) -----\n"
+welcome_msg = "\n----- Thanks for using MessageBox. This is a small program to help you to leave a message to your favorite person : ) -----\n"
 exit_msg = "\n----- Program has been terminalted, thanks for using :) -----\n"
 command_error_msg = "\n----- Wrong command \n"
 exit_program = "exit"

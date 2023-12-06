@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-This is a "email" program called "MessageBox" with Review and Write on the local database, user can leave message to a selected accounts in the program and save the message in the program database.
+This is an "email" program called "MessageBox" with Review and Write on the local database, user can leave message to a selected accounts in the program and save the message in the program database.
 
 When the user login back into the program, the user can review the historical message that is received from other users.
 
@@ -18,7 +18,7 @@ It's working like a Email system, send or review message.
 
 ## Program run guidance
 
-1. #### Program strucrue 
+1. #### Program structure 
 
 #### MessageBox inlude 5 files in total
 
@@ -35,7 +35,7 @@ It's working like a Email system, send or review message.
     - user_message.txt # stored sender, receiver and message information with data format "sender,receiver,message"
     
 2. #### How to run or test program? 
-    - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, becuase this is new account)
+    - User could directly run main_messagebox.py and follow instruction to signup account and send message to the accounts in the system. (Review message won't work, because this is new account)
 
     - User could directly run main_messagebox.py and login program with test account 
         - "username: gao / password: 123" to review the existing message for "gao"
@@ -45,12 +45,12 @@ It's working like a Email system, send or review message.
 1. User selects login or sign up for program
 
     - Sign up with user name and credential (signup)
-        - Program provide error message when username is invalid or exsits
-    - Login prorgam with user information (login)
+        - Program provide error message when username is invalid or exits
+    - Login program with user information (login)
 
 2. Select a audience want to leave message or review message received from other users
 
-    - Provide defual users
+    - Provide default users
     - Review message
         - Return empty message when no message exsit
         - Print out historical message for the user
